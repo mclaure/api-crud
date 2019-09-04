@@ -2,7 +2,7 @@
 ```
 API solution that handles SQL and NoSQL requests
 ```
-![Arquitectura](https://user-images.githubusercontent.com/24611413/64218352-441e6a80-ce8f-11e9-9012-451288ad83ea.jpg)
+![Arquitectura](https://user-images.githubusercontent.com/24611413/64218588-433a0880-ce90-11e9-85c1-230cc39b27cd.jpg)
 ---
 ## Installing
 
