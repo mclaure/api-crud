@@ -35,6 +35,7 @@ mysql -u <user> -p < users.sql
 * GET     /api/users/detail?id={id}
 * POST    /api/users/add
 * DELETE  /api/users/del/{id}
+* PUT     /api/users/update/kudos/{id}
 ---
 ## Author
 

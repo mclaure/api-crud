@@ -28,6 +28,9 @@ module.exports = function(app) {
   app.route('/api/users/add')
     .post(mysqldb.add_user);
 
+  app.route('/api/users/update/kudos/:id')
+    .put(mysqldb.update_kudos);
+
   app.route('/api/users/del/:id')
     .delete(mysqldb.del_user);       
 };

@@ -80,3 +80,18 @@ exports.del_user = (req, res, next) => {
             return res.json({deleted:true});
     });    
 };
+
+exports.update_kudos = (req, res, next) => {
+    let sql = "UPDATE user\
+               SET kudosQTY = (kudosQTY + 1) \
+               WHERE id = ?;";
+               
+    let params = [req.params.id];
+
+    mysqlConn.query(sql, params, function (error, rows, fields) {
+        if (error) 
+            return res.status(500).send(error);
+        else 
+            return res.json({kudosUpdated:true});
+    });    
+};
