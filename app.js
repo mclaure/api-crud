@@ -1,13 +1,16 @@
-const express = require("express");
-const bodyparser = require("body-parser");
+'use strict';
+
+var express = require("express");
+var bodyParser = require("body-parser");
 const cors = require("cors");
 const mongodb = require("./config/MongoDBdatabase");
 const routes = require("./routes/routes");
 
-const app = express();
+var app = express();
+ 
 app.use(cors());
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({extended:false}));
-routes(app);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+routes(app, express);
 
 module.exports = app;

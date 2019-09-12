@@ -1,0 +1,229 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Services",
+    "description": "Kudos and Users services"
+  },
+  "basePath": "/",
+  "tags" : [
+    {"name": "KUDOS", 
+    "description": "List of available methods"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/path/to/method": {
+       "post": {
+          "tags": ["KUDOS"],
+          "description": "List of Kudos",
+          "operationId": "for the URL",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+              {
+                "name": "Job Parameters",
+                "in": "body",
+                "description": "Job to add to the database",
+                "required": true,
+              "schema": {
+                "$ref": "#/definitions/create"
+                }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "create response",
+              "schema": {
+                 "$ref": "#/definitions/response"
+              }
+            }
+          }
+        }
+    },
+    "/path/to/method/{someVariable}": {
+        "delete":{
+          "tags":["KUDOS"],
+          "description":"Deletes a something",
+          "operationId":"delete",
+          "produces": [
+            "application/json"
+          ],
+          "parameters":[
+              {
+                "name": "someVariable",
+                "in": "path",
+                "description": "ID to delete",
+                "required": true,
+                "type": "string"
+              }
+            ],
+          "responses": {
+            "200": {
+              "description": "delete response",
+              "schema":{
+                "$ref":"#/definitions/deleteRes"
+              }
+            }
+          }
+        },
+      "get":{
+          "tags": [ "KUDOS"],
+          "description": "Returns the status of something",
+          "operationId": "findById",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+              {
+                "name": "ID",
+                "in": "path",
+                "description": "ID to fetch",
+                "required": true,
+                "type": "string"
+              }
+            ],
+        "responses": {
+            "200": {
+              "description": "response",
+              "schema": {
+                "$ref": "#/definitions/response1"
+              }
+            }
+          }
+        }    
+      },
+      "/api/kudos/list": {
+      "get":{
+          "tags": [ "KUDOS"],
+          "description": "Returns a list of kudos",
+          "operationId": "list",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [ ],
+        "responses": {
+            "200": {
+              "description": "response",
+              "schema": {
+                "$ref": "#/definitions/responseKudos"
+              }
+            }
+          }
+        }    
+      }      
+  },
+  "definitions": {
+    "create": {
+      "properties": {
+        "eventId": {
+          "required":true,
+          "type": "string",
+          "example": "mathmaticial"
+        },
+        "numberRequired": {
+          "required":true,
+          "type":"integer",
+          "format": "int64",
+          "example": 500
+        } 
+      }
+    },
+    "response1": {
+        "properties": {
+          "jobID": {
+            "required":true,
+            "type": "string",
+            "example": "23423456543"
+          },
+          "request": {
+            "required":true,
+            "type": "schema",
+            "example": {
+              "eventId":"mathmaticial",
+              "numberRequired": 500
+            }
+          }
+      }
+    },
+    "response": {
+        "properties": {
+            "jobID": {
+              "required": true,
+              "type" : "string",
+              "example" : "12321432423"
+            }
+        }
+    },
+    "responseKudos": {
+      "properties": {
+          "id": {
+            "requiered": true,
+            "type" : "int",
+            "example" : "25"
+          },
+          "remitente": {
+            "requiered": true,
+            "type" : "string",
+            "example" : "Juan Perez"
+          }, 
+          "destinatario": {
+            "requiered": true,
+            "type" : "string",
+            "example" : "Pedro Picapiedra"
+          },
+          "fecha": {
+            "requiered": true,
+            "type" : "date",
+            "example" : "2019-09-01"
+          }, 
+          "lugar": {
+            "requiered": true,
+            "type" : "string",
+            "example" : "cochabamba"
+          },  
+          "tema": {
+            "requiered": true,
+            "type" : "string",
+            "example" : "Muchas Felicidades"
+          },
+          "texto": {
+            "requiered": true,
+            "type" : "string",
+            "example" : "En hora buena!"
+          }                                                                 
+      }
+  },    
+    "delete": {
+        "properties": {
+            "jobID": {
+              "required": true,
+              "type" : "string",
+              "example" : "234344234234"
+            },
+            "status" : {
+              "required": true,
+              "type": "string",
+              "example": "deleted"
+            }
+        }
+    },
+    "400error" : {
+       "properties": {
+        "message": {
+          "type": "string",
+          "example" : "400 Bad Request"
+        }
+      }
+    }
+  }
+}
