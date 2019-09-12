@@ -12,7 +12,7 @@ module.exports = function(app) {
   app.route('/api/kudos/add')
     .post(mongodb.add_kudos);       
     
-  app.route('/api/kudos/del/:id?')
+  app.route('/api/kudos/del/:id')
     .delete(mongodb.del_kudos);   
     
   //   *********** USUARIOS ***********
